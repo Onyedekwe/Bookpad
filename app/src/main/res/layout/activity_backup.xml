@@ -40,7 +40,7 @@
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:layout_gravity="top|right"
-                    android:layout_marginHorizontal="12dp"
+                    android:layout_marginHorizontal="13dp"
                     android:layout_marginVertical="75dp"
                     android:src="@drawable/ic_baseline_cloud_download_24" />
 
