@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <item
+        android:id="@+id/share"
+        android:icon="@drawable/ic_baseline_share_24"
+        android:title="@string/share"
+        app:showAsAction="ifRoom">
+
+    </item>
+
+    <item
+        android:id="@+id/edit"
+        android:icon="@drawable/ic_baseline_edit_24"
+        android:iconTint="@color/white"
+        android:title="@string/edit"
+        app:showAsAction="ifRoom">
+
+    </item>
+
+    <item
+        android:id="@+id/reminder"
+        android:icon="@drawable/reminder"
+        android:title="@string/reminder"
+        app:showAsAction="ifRoom">
+
+    </item>
+
+    <item
+        android:id="@+id/delete"
+        android:icon="@drawable/ic_baseline_delete_24"
+        android:iconTint="@color/white"
+        android:title="@string/delete"
+        app:showAsAction="never">
+
+    </item>
+
+</menu>

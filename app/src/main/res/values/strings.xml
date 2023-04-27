@@ -1,0 +1,85 @@
+<resources>
+    <string name="app_name">Bookpad</string>
+    <string name="search_menu">Search</string>
+    <string name="HomeFAB">New note</string>
+    <string name="ContentFAB">Add topic</string>
+    <string name="Book_Name_Hint">Subject</string>
+    <string name="Content_Name_Hint">Topic</string>
+    <string name="Note_Name_Hint">Insert note</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+
+    <string name="chooser">Send message via…</string>
+    <string name="year">Year</string>
+    <string name="options">Options</string>
+    <string name="No_Book_Text_Display_1">No notes</string>
+    <string name="No_Book_Text_Display_2">Click the button below to create note</string>
+    <string name="content_count">Total topics:</string>
+    <string name="information">Information</string>
+    <string name="name">Subject:</string>
+    <string name="company_name">Multi-purpose Lecture Note</string>
+    <string name="date_created">Date created:</string>
+    <string name="course_name">Subject:</string>
+    <string name="empty">Empty</string>
+    <string name="books">Notes</string>
+    <string name="icon">Icon</string>
+    <string name="edit">Edit</string>
+    <string name="reminder">Reminder</string>
+    <string name="add_description">Add description</string>
+    <string name="set_time">Set time</string>
+    <string name="set_alarm">Set alarm</string>
+    <string name="delete">Delete</string>
+    <string name="share">Share</string>
+    <string name="to_do">Checklist</string>
+    <string name="choose_theme">Choose theme</string>
+    <string name="extras">Extras</string>
+    <string name="backup">Backup &amp; Restore</string>
+    <string name="content_name">Topic:</string>
+    <string name="delete_confirmation">This will permanently remove</string>
+    <string name="deleted">Deleted</string>
+    <string name="cancel">Cancel</string>
+    <string name="book_already_exist">Note already exist</string>
+    <string name="successful">Successful</string>
+    <string name="unsuccessful">Unsuccessful</string>
+    <string name="please_insert_book">Please insert Subject</string>
+    <string name="please_insert_task">Please insert task description</string>
+    <string name="create_book_toolbar">New note</string>
+    <string name="add_book_toolbar">Add topic</string>
+    <string name="newEntryInserted">New entry inserted</string>
+    <string name="newEntryNotInserted">New Entry Not Inserted</string>
+    <string name="pleaseInsertContent">Please insert topic </string>
+    <string name="databaseUnavailable">Database unavailable</string>
+    <string name="topicAlreadyExist">Topic already exist</string>
+    <string name="pleaseAddDescription">Please add description</string>
+    <string name="pleaseAddTime">Please add time</string>
+    <string name="thereIsNoIntentApp">There is no app that supports this action</string>
+    <string name="entryNotSavedYet">Entry has not been saved yet</string>
+    <string name="databaseError">Database error</string>
+    <string name="entryNotUpdated">Entry not updated</string>
+    <string name="entryUpdated">Entry updated</string>
+    <string name="deleteThisTopic">Delete this topic ?</string>
+    <string name="deleteThisNote">Delete this note ?</string>
+    <string name="backupToLocation">Backup to location</string>
+    <string name="restore_from_location">Restore from location</string>
+    <string name="new_task">Checklist</string>
+    <string name="set_alerts">Set alerts</string>
+    <string name="save">Save</string>
+    <string name="done">Done</string>
+    <string name="help">Help</string>
+    <string name="EditTask">Edit task</string>
+    <string name="EditCourse">Edit subject</string>
+    <string name="homePageDescription">The Home page shows a list of all the notes created by the user.\n\nIt has a search bar which enables the user locate notes quickly and a button below for creating notes and checklist.</string>
+    <string name="content_description">The Contents page shows a list of all the topics of a note. It also has a search icon which enables the user navigate between topics and a large button below for adding more topics to a note.</string>
+    <string name="deleting_contents">Long press each note topic to edit or delete it.</string>
+    <string name="content_note_this">If all note topics are deleted, the note automatically gets deleted</string>
+    <string name="details_description">The Details page shows the information contained in each topic.\n\n It contains a header bar which shows the subject, a sub header which shows the topic title and below it is the information.</string>
+    <string name="restore_alert">Restoring backup sets the note list to a previous version during last backup. This action cannot be undone!</string>
+    <string name="remove_ads">Remove Ads</string>
+    <string name="help_task_description">The Checklist page shows a list of all pending and completed task\n\n It has a search bar which enables users locate tasks quickly and a button below for adding tasks.</string>
+
+
+    <string name="rate_dialog_message">If you enjoy using this app, would you mind taking a moment to rate it? This action will take less than a minute. Thanks for your support!</string>
+    <string name="rate_app">Rate Bookpad</string>
+</resources>

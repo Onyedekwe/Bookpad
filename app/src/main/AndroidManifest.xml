@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.ebookfrenzy.lecturenote" >
+
+    <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
+    <application
+        android:name=".Database.UserSettings"
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/lecture_note_icon"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/lecture_note_icon"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.LectureNote"
+        tools:targetApi="31" >
+        <activity
+            android:name=".SubscriptionActivity"
+            android:exported="false"
+            android:parentActivityName=".CourseListActivity" />
+
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-4208883735301832~8995978999" />
+
+        <activity
+            android:name=".HelpActivity"
+            android:exported="false"
+            android:parentActivityName=".CourseListActivity" />
+        <activity
+            android:name=".TodoActivity"
+            android:exported="false"
+            android:parentActivityName=".CourseListActivity"/>
+        <activity
+            android:name=".BackupActivity"
+            android:exported="false"
+            android:parentActivityName=".CourseListActivity" />
+        <activity
+            android:name=".UpdateActivity"
+            android:exported="false"
+            android:parentActivityName=".DisplayActivity" />
+        <activity
+            android:name=".TopicListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DisplayActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CreateTopicActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CreateCourseActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CourseListActivity"
+            android:exported="false"
+            android:parentActivityName=".CourseListActivity"/>
+        <activity
+            android:name=".SplashActivity"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

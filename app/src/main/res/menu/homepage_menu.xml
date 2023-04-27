@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_lectureNote"
+            android:icon="@drawable/ic_baseline_book_24"
+            android:checkable="true"
+            android:title="@string/books" />
+
+        <item
+            android:id="@+id/nav_todo"
+            android:icon="@drawable/ic_baseline_check_circle_24"
+            android:title="@string/to_do" />
+
+
+    </group>
+
+
+    <group>
+
+        <item android:title="@string/extras">
+
+            <menu>
+
+                <item
+                    android:id="@+id/nav_theme"
+                    android:icon="@drawable/theme_icon"
+                    android:title="@string/choose_theme" />
+
+                <item
+                    android:id="@+id/nav_back_up"
+                    android:icon="@drawable/ic_baseline_cloud_24"
+                    android:title="@string/backup" />
+
+                <item
+                    android:id="@+id/nav_rate_app"
+                    android:icon="@drawable/ic_baseline_star_rate_24"
+                    android:title="@string/rate_app" />
+
+                <item
+                    android:id="@+id/nav_ads"
+                    android:icon="@drawable/ic_baseline_remove_circle_24"
+                    android:title="@string/remove_ads" />
+
+
+                <item
+                    android:id="@+id/nav_help"
+                    android:icon="@drawable/ic_baseline_help_24"
+                    android:title="@string/help" />
+
+            </menu>
+
+
+        </item>
+
+
+    </group>
+
+</menu>

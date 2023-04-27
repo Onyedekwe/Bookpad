@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#000000</color>
+    <color name="black_semi_transparent">#4E000000</color>
+    <color name="light_grey">#dadada</color>
+    <color name="dark_grey">#333333</color>
+    <color name="white">#FAFAFA</color>
+
+    <color name="royal">#268056</color>
+    <color name="royaldarktheme">#393E46</color>
+    <color name="red_color">#F56565</color>
+    <color name="Swipe_tab_color">#FCB88B</color>
+    <color name="FAB">#2A8C5E</color>
+
+
+</resources>
