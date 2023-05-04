@@ -50,7 +50,7 @@
             <Button
                 android:id="@+id/backupBtn"
                 android:layout_width="250dp"
-                android:layout_height="65dp"
+                android:layout_height="64dp"
                 android:layout_gravity="center"
                 android:background="@drawable/search_view_curve_corners"
                 android:text="@string/backupToLocation"
@@ -65,7 +65,7 @@
             <Button
                 android:id="@+id/restoreBtn"
                 android:layout_width="250dp"
-                android:layout_height="65dp"
+                android:layout_height="64dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/search_view_curve_corners"
