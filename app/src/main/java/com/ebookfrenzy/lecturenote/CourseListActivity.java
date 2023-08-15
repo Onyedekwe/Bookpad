@@ -82,6 +82,7 @@ public class CourseListActivity extends AppCompatActivity implements card_course
     int isCheckeds;   //1 = systemdefault 2 = light 3 = dark
     private UserSettings settings;
 
+    SharedPreferences sharedPreferences;
 
 
     @SuppressLint("ResourceAsColor")
@@ -131,6 +132,8 @@ public class CourseListActivity extends AppCompatActivity implements card_course
 
 
         settings = (UserSettings) getApplication();
+
+        sharedPreferences = getSharedPreferences(UserSettings.PREFERENCES, MODE_PRIVATE);
         loadSharedPreferences();
 
         searchView = findViewById(R.id.search_View);
@@ -228,6 +231,7 @@ public class CourseListActivity extends AppCompatActivity implements card_course
             AdRequest request = new AdRequest.Builder().build();
             relativeLayout.setVisibility(View.VISIBLE);
             adView.loadAd(request);
+
         } else {
 
         }
@@ -449,6 +453,10 @@ public class CourseListActivity extends AppCompatActivity implements card_course
             b.setTextColor(buttonColor2);
             b.setPadding(50, 0, 10, 0);
         }
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putLong("LaunchTime", System.currentTimeMillis());
+        editor.apply();
+
     }
     private void showEditDialog() {
         final Dialog dialog = new Dialog(this);
@@ -539,7 +547,7 @@ public class CourseListActivity extends AppCompatActivity implements card_course
 
 
     private void loadSharedPreferences() {
-        SharedPreferences sharedPreferences = getSharedPreferences(UserSettings.PREFERENCES, MODE_PRIVATE);
+
         String theme = sharedPreferences.getString(UserSettings.CUSTOM_THEME, UserSettings.DEFAULT_THEME);
         long launchTime = sharedPreferences.getLong("LaunchTime", 0);
 

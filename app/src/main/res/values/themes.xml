@@ -22,7 +22,7 @@
 
 
         <item name="colorOnBackground">@color/black_semi_transparent</item>
-        <item name="colorOnSurface">#666666</item>
+        <item name="colorOnSurface">#353839</item>
         <item name="iconTint">?attr/colorPrimaryVariant</item>
         <item name="indicatorColor">@color/light_grey</item>
         <item name="colorOnError">#2E8C5D</item>

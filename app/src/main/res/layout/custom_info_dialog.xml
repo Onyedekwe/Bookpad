@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_margin="10dp"
-            android:text="Bookpad 3.1"
+            android:text="Bookpad 3.2"
             android:textColor="?attr/colorOnSurface"
             android:textSize="20dp"
             android:textStyle="bold" />

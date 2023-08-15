@@ -116,7 +116,7 @@ public class CreateTopicActivity extends AppCompatActivity {
                     String day = Daytext.getText().toString();
                     String time = Timetext.getText().toString();
 
-                    Cursor res = db.getdata();
+                    Cursor res = db.getTopics(course);
                     while (res.moveToNext()) {
                         topics.add(res.getString(2).trim());
                     }
