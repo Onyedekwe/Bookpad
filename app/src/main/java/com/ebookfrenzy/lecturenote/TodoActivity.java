@@ -1,6 +1,7 @@
 package com.ebookfrenzy.lecturenote;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.TimePickerDialog;
 import android.content.Context;
@@ -27,6 +28,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
@@ -36,6 +38,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.ItemTouchHelper;
@@ -284,12 +287,60 @@ public class TodoActivity extends AppCompatActivity implements Todo_adapter.OnNo
 
     @Override
     public void onNoteClick(int position) {
-
+        String temp = adapter.getTaskName(position);
+        showEditDialog(temp, position);
     }
 
     @Override
     public void onItemLongClick(int position) {
 
+        AlertDialog.Builder builder = new AlertDialog.Builder(adapter.getContext());
+        builder.setTitle("Delete Task?");
+        builder.setMessage("This action cannot be undone");
+        builder.setOnCancelListener(new DialogInterface.OnCancelListener() {
+            @Override
+            public void onCancel(DialogInterface dialog) {
+                adapter.notifyItemChanged(position);
+            }
+        });
+        builder.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                String temp = adapter.getTaskName(position);
+                db = new DatabaseHelper(adapter.getContext());
+                db.deletetask(temp);
+                Toast.makeText(adapter.getContext(), R.string.deleted, Toast.LENGTH_SHORT).show();
+                adapter.refreshRemoved(position);
+                adapter.notifyItemRemoved(position);
+                adapter.checkEmpty();
+
+
+            }
+        });
+
+
+        builder.setNegativeButton("cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                adapter.notifyItemChanged(position);
+            }
+        });
+        AlertDialog dialog = builder.create();
+        dialog.show();
+
+        Button a = dialog.getButton(DialogInterface.BUTTON_NEGATIVE);
+        int buttonColor1 = ContextCompat.getColor(adapter.getContext(), R.color.black);
+        if (a != null) {
+            a.setTextColor(buttonColor1);
+        }
+
+        Button b = dialog.getButton(DialogInterface.BUTTON_POSITIVE);
+        int buttonColor2 = ContextCompat.getColor(adapter.getContext(), R.color.red_color);
+        if (b != null) {
+            b.setTextColor(buttonColor2);
+            b.setPadding(50, 0, 10, 0);
+
+        }
     }
 
     @Override
@@ -413,6 +464,76 @@ public class TodoActivity extends AppCompatActivity implements Todo_adapter.OnNo
         });
 
     }
+
+
+
+    private void showEditDialog(String prevTask, int position) {
+
+        final Dialog dialog = new Dialog(adapter.getContext());
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(R.layout.bottomtaskeditlayout);
+        TextView header = dialog.findViewById(R.id.Choosetxt);
+        header.setText(R.string.EditTask);
+        EditText taskText = dialog.findViewById(R.id.course_name);
+        taskText.setHint("Insert task");
+        taskText.setText(prevTask);
+        Button saveButton = dialog.findViewById(R.id.layoutButton);
+
+
+        saveButton.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("NotifyDataSetChanged")
+            @Override
+            public void onClick(View v) {
+                String taskDemo = taskText.getText().toString();
+                taskCheck = new ArrayList<>();
+
+                Cursor res = db.gettask();
+                while (res.moveToNext()) {
+
+                    taskCheck.add(res.getString(1).trim());
+                }
+
+                if (!taskDemo.isEmpty()) {
+                    if (taskCheck.contains(taskDemo.trim())) {
+                        Toast.makeText(adapter.getContext(), "Task already exist", Toast.LENGTH_SHORT).show();
+                    } else {
+                        boolean checkeditdata = db.updatetask(taskDemo, prevTask);
+                        if (checkeditdata) {
+                            Toast.makeText(adapter.getContext(), R.string.successful, Toast.LENGTH_SHORT).show();
+                            taskCheck.clear();
+
+                            dialog.dismiss();
+
+                            adapter.refreshUpdate(taskDemo, position);
+                            adapter.notifyItemChanged(position);
+
+                        } else {
+                            Toast.makeText(adapter.getContext(), R.string.unsuccessful, Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                } else {
+                    Toast.makeText(adapter.getContext(), R.string.please_insert_task, Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+
+        dialog.show();
+        dialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
+            @Override
+            public void onCancel(DialogInterface dialog) {
+
+                adapter.notifyItemChanged(position);
+            }
+        });
+        dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialog.getWindow().getAttributes().windowAnimations = R.style.DialoAnimations;
+        dialog.getWindow().setGravity(Gravity.BOTTOM);
+
+    }
+
+
 
     private void loadSharedPreferences() {
         SharedPreferences sharedPreferences = getSharedPreferences(UserSettings.PREFERENCES, MODE_PRIVATE);

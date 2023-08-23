@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -51,8 +52,8 @@ public class Todo_adapter extends RecyclerView.Adapter<Todo_adapter.MyViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        holder.checkBox.setText(String.valueOf(todo_id.get(position)));
-        Cursor res = db.getstatus(holder.checkBox.getText().toString());
+        holder.textView.setText(String.valueOf(todo_id.get(position)));
+        Cursor res = db.getstatus(holder.textView.getText().toString());
         if (res.getCount() == 0) {
 
         }
@@ -105,21 +106,23 @@ public class Todo_adapter extends RecyclerView.Adapter<Todo_adapter.MyViewHolder
 
     public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
         CheckBox checkBox;
+        TextView textView;
         OnNoteListener onNoteListener;
 
 
         public MyViewHolder(@NonNull View itemView, OnNoteListener onNoteListener) {
             super(itemView);
             checkBox = itemView.findViewById(R.id.checkbox);
+            textView = itemView.findViewById(R.id.textbox);
             checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                     if (isChecked) {
-                        db.updateStatus(checkBox.getText().toString(), 1);
-                        checkBox.setPaintFlags(checkBox.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+                        db.updateStatus(textView.getText().toString(), 1);
+                        textView.setPaintFlags(textView.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
                     } else {
-                        db.updateStatus(checkBox.getText().toString(), 0);
-                        checkBox.setPaintFlags(checkBox.getPaintFlags() & ~Paint.STRIKE_THRU_TEXT_FLAG);
+                        db.updateStatus(textView.getText().toString(), 0);
+                        textView.setPaintFlags(textView.getPaintFlags() & ~Paint.STRIKE_THRU_TEXT_FLAG);
 
                     }
                 }

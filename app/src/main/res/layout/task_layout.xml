@@ -5,15 +5,33 @@
     android:orientation="vertical"
     android:paddingStart="10dp">
 
-    <CheckBox
-        android:id="@+id/checkbox"
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:buttonTint="?attr/iconTint"
-        android:paddingStart="8dp"
-        android:paddingEnd="8dp"
-        android:lineSpacingExtra="6dp"
-        android:text="This is task one" />
+        android:orientation="horizontal">
+
+        <CheckBox
+            android:id="@+id/checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:buttonTint="?attr/iconTint"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"/>
+
+        <TextView
+            android:id="@+id/textbox"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:buttonTint="?attr/iconTint"
+            android:gravity="center|start"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:lineSpacingExtra="6dp"
+            android:text="This is task one"
+            android:textColor="?attr/colorOnSurface"/>
+    </LinearLayout>
+
 
     <LinearLayout
         android:layout_width="match_parent"
